@@ -27,13 +27,13 @@ gis = GIS("https://www.arcgis.com", AGOL_USERNAME, AGOL_PASSWORD)
 # =========================
 # FEATURE LAYER
 # =========================
-SURVEY_LAYER_URL = "https://services9.arcgis.com/yF9lC2Enj2rx9gHK/arcgis/rest/services/service_eec5deb1b491460281f8492dcd8a631a/FeatureServer/0"
+SURVEY_LAYER_URL = "https://services9.arcgis.com/yF9lC2Enj2rx9gHK/arcgis/rest/services/service_5f30df644fac4436bede321906af53af/FeatureServer/0"
 layer = FeatureLayer(SURVEY_LAYER_URL, gis=gis)
 
 # =========================
 # TEMPLATE
 # =========================
-TEMPLATE_PATH = "CHEMICAL SAFETY Report.docx"
+TEMPLATE_PATH = "BEAUTY SALONS REPORT Auto.docx"
 
 if not os.path.exists(TEMPLATE_PATH):
     raise Exception(f"{TEMPLATE_PATH} not found in project root")
@@ -201,8 +201,8 @@ def generate_report(attributes, objectid):
     qr_image = InlineImage(doc, qr_file, width=Mm(25))
 
     context = {
-        "municipality": attributes.get("municipality", "N/A"),
-        "premise_name": attributes.get("premise_name", "N/A"),
+        "contact": attributes.get("contact", "N/A"),
+        "facility_name": attributes.get("facility_name", "N/A"),
         "address": attributes.get("address", "N/A"),
         "Premise_Type": attributes.get("Premise_Type", "N/A"),
         "owner_name": attributes.get("owner_name", "N/A"),
@@ -312,8 +312,6 @@ def generate_report(attributes, objectid):
         "Rem45": attributes.get("Rem45", "N/A"),
         "Q46": attributes.get("Q46", "N/A"),
         "Rem46": attributes.get("Rem46", "N/A"),
-        "Q47": attributes.get("Q47", "N/A"),
-        "Rem47": attributes.get("Rem47", "N/A"),
 
         "Non_compliances": attributes.get("Non_compliances", "N/A"),
         "Corrective_action": attributes.get("Corrective_action", "N/A"),
