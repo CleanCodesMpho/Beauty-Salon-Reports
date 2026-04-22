@@ -27,13 +27,13 @@ gis = GIS("https://www.arcgis.com", AGOL_USERNAME, AGOL_PASSWORD)
 # =========================
 # FEATURE LAYER
 # =========================
-SURVEY_LAYER_URL = "https://services9.arcgis.com/yF9lC2Enj2rx9gHK/arcgis/rest/services/service_5f30df644fac4436bede321906af53af/FeatureServer/0"
+SURVEY_LAYER_URL = "https://services6.arcgis.com/345WScIubRHps95b/arcgis/rest/services/service_f42b703cdb24443ca50b30f44e9868bf/FeatureServer/0"
 layer = FeatureLayer(SURVEY_LAYER_URL, gis=gis)
 
 # =========================
 # TEMPLATE
 # =========================
-TEMPLATE_PATH = "BEAUTY SALONS REPORT Auto.docx"
+TEMPLATE_PATH = "FORMAL_FOOD_PREMISES_INPECTION_REPORT.docx"
 
 if not os.path.exists(TEMPLATE_PATH):
     raise Exception(f"{TEMPLATE_PATH} not found in project root")
@@ -201,101 +201,109 @@ def generate_report(attributes, objectid):
     qr_image = InlineImage(doc, qr_file, width=Mm(25))
 
     context = {
-        "contact": attributes.get("contact", "N/A"),
-        "facility_name": attributes.get("facility_name", "N/A"),
+        "premise_name": attributes.get("premise_name", "N/A"),
+        "Name": attributes.get("Name", "N/A"),
         "address": attributes.get("address", "N/A"),
-        "Premise_Type": attributes.get("Premise_Type", "N/A"),
-        "owner_name": attributes.get("owner_name", "N/A"),
-        "contact": attributes.get("contact", "N/A"),
+        "Surname": attributes.get("Surname", "N/A"),
+        "ID_no": attributes.get("ID_no", "N/A"),
+        "tel_no": attributes.get("tel_not", "N/A"),
         "inspection_date": edit_date,
-        "EHP": attributes.get("EHP", "N/A"),
+        "cell_no": attributes.get("cell_no", "N/A"),
 
+        "males": attributes.get("males", "N/A"),
+        "female": attributes.get("female", "N/A"),
+        "A1": attributes.get("A1", "N/A"),
+        "S1": attributes.get("S1", "N/A"),
+        "A3": attributes.get("A3", "N/A"),
+        "S3": attributes.get("S3", "N/A"),
+        "A4": attributes.get("A4", "N/A"),
+        "S4": attributes.get("S4", "N/A"),
+        "A5": attributes.get("A5", "N/A"),
+        "S5": attributes.get("S5", "N/A"),
+
+        "A6": attributes.get("A6", "N/A"),
+        "S6": attributes.get("S6", "N/A"),
+        "A7": attributes.get("A7", "N/A"),
+        "S7": attributes.get("S7", "N/A"),
+        "municname": attributes.get("municname", "N/A"),
         "Q1": attributes.get("Q1", "N/A"),
-        "Rem1": attributes.get("Rem1", "N/A"),
+        "comm1": attributes.get("comm1", "N/A"),
         "Q2": attributes.get("Q2", "N/A"),
-        "Rem2": attributes.get("Rem2", "N/A"),
-        "Q3": attributes.get("Q3", "N/A"),
-        "Rem3": attributes.get("Rem3", "N/A"),
+        "comm2": attributes.get("comm2", "N/A"),
+        "Q3": attributes.get("Q30", "N/A"),
+
+        "comm3": attributes.get("comm3", "N/A"),
         "Q4": attributes.get("Q4", "N/A"),
-        "Rem4": attributes.get("Rem4", "N/A"),
+        "comm4": attributes.get("comm4", "N/A"),
         "Q5": attributes.get("Q5", "N/A"),
-        "Rem5": attributes.get("Rem5", "N/A"),
-
+        "comm5": attributes.get("comm5", "N/A"),
         "Q6": attributes.get("Q6", "N/A"),
-        "Rem6": attributes.get("Rem6", "N/A"),
+        "comm6": attributes.get("comm6", "N/A"),
         "Q7": attributes.get("Q7", "N/A"),
-        "Rem7": attributes.get("Rem7", "N/A"),
+        "comm7": attributes.get("comm7", "N/A"),
+
         "Q8": attributes.get("Q8", "N/A"),
-        "Rem8": attributes.get("Rem8", "N/A"),
+        "comm8": attributes.get("comm8", "N/A"),
         "Q9": attributes.get("Q9", "N/A"),
-        "Rem9": attributes.get("Rem9", "N/A"),
+        "comm9": attributes.get("comm9", "N/A"),
         "Q10": attributes.get("Q10", "N/A"),
-        "Rem10": attributes.get("Rem10", "N/A"),
-
+        "comm10": attributes.get("comm10", "N/A"),
         "Q11": attributes.get("Q11", "N/A"),
-        "Rem11": attributes.get("Rem11", "N/A"),
+        "comm11": attributes.get("comm11", "N/A"),
+
         "Q12": attributes.get("Q12", "N/A"),
-        "Rem12": attributes.get("Rem12", "N/A"),
+        "comm12": attributes.get("comm12", "N/A"),
         "Q13": attributes.get("Q13", "N/A"),
-        "Rem13": attributes.get("Rem13", "N/A"),
+        "comm13": attributes.get("comm13", "N/A"),
         "Q14": attributes.get("Q14", "N/A"),
-        "Rem14": attributes.get("Rem14", "N/A"),
+        "comm14": attributes.get("comm14", "N/A"),
         "Q15": attributes.get("Q15", "N/A"),
-        "Rem15": attributes.get("Rem15", "N/A"),
+        "comm16": attributes.get("comm16", "N/A"),
 
-        "Q16": attributes.get("Q16", "N/A"),
-        "Rem16": attributes.get("Rem16", "N/A"),
         "Q17": attributes.get("Q17", "N/A"),
-        "Rem17": attributes.get("Rem17", "N/A"),
+        "comm17": attributes.get("comm17", "N/A"),
         "Q18": attributes.get("Q18", "N/A"),
-        "Rem18": attributes.get("Rem18", "N/A"),
+        "comm18": attributes.get("comm18", "N/A"),
         "Q19": attributes.get("Q19", "N/A"),
-        "Rem19": attributes.get("Rem19", "N/A"),
-
+        "comm19": attributes.get("comm19", "N/A"),
         "Q20": attributes.get("Q20", "N/A"),
-        "Rem20": attributes.get("Rem20", "N/A"),
+        "comm20": attributes.get("comm20", "N/A"),
+
         "Q21": attributes.get("Q21", "N/A"),
-        "Rem21": attributes.get("Rem21", "N/A"),
+        "comm21": attributes.get("comm21", "N/A"),
         "Q22": attributes.get("Q22", "N/A"),
-        "Rem22": attributes.get("Rem22", "N/A"),
+        "comm22": attributes.get("comm22", "N/A"),
         "Q23": attributes.get("Q23", "N/A"),
-        "Rem23": attributes.get("Rem23", "N/A"),
-
+        "comm23": attributes.get("comm23", "N/A"),
         "Q24": attributes.get("Q24", "N/A"),
-        "Rem24": attributes.get("Rem24", "N/A"),
+        "comm24": attributes.get("comm24", "N/A"),
+
         "Q25": attributes.get("Q25", "N/A"),
-        "Rem25": attributes.get("Rem25", "N/A"),
+        "comm25": attributes.get("comm25", "N/A"),
         "Q26": attributes.get("Q26", "N/A"),
-        "Rem26": attributes.get("Rem26", "N/A"),
+        "comm26": attributes.get("comm26", "N/A"),
         "Q27": attributes.get("Q27", "N/A"),
-        "Rem27": attributes.get("Rem27", "N/A"),
-
+        "comm27": attributes.get("comm27", "N/A"),
         "Q28": attributes.get("Q28", "N/A"),
-        "Rem28": attributes.get("Rem28", "N/A"),
-        "Q29": attributes.get("Q29", "N/A"),
-        "Rem29": attributes.get("Rem29", "N/A"),
+        "comm28": attributes.get("comm28", "N/A"),
+
+        "Q29": attributes.get("Q20", "N/A"),
+        "comm29": attributes.get("comm29", "N/A"),
         "Q30": attributes.get("Q30", "N/A"),
-        "Rem30": attributes.get("Rem30", "N/A"),
+        "comm30": attributes.get("comm30", "N/A"),
         "Q31": attributes.get("Q31", "N/A"),
-        "Rem31": attributes.get("Rem31", "N/A"),
-
+        "comm31": attributes.get("comm31", "N/A"),
         "Q32": attributes.get("Q32", "N/A"),
-        "Rem32": attributes.get("Rem32", "N/A"),
-        "Q33": attributes.get("Q33", "N/A"),
-        "Rem33": attributes.get("Rem33", "N/A"),
-        "Q34": attributes.get("Q34", "N/A"),
-        "Rem34": attributes.get("Rem34", "N/A"),
-        "Q35": attributes.get("Q35", "N/A"),
-        "Rem35": attributes.get("Rem35", "N/A"),
+        "comm32": attributes.get("commm32", "N/A"),
 
+         "Q33": attributes.get("Q33", "N/A"),
+        "comm33": attributes.get("comm33", "N/A"),
+        "Q34": attributes.get("Q34", "N/A"),
+        "comm34": attributes.get("comm34", "N/A"),
+        "Q35": attributes.get("Q35", "N/A"),
+        "comm35": attributes.get("comm35", "N/A"),
         "Q36": attributes.get("Q36", "N/A"),
-        "Rem36": attributes.get("Rem36", "N/A"),
-        "Q37": attributes.get("Q37", "N/A"),
-        "Rem37": attributes.get("Rem37", "N/A"),
-        "Q38": attributes.get("Q38", "N/A"),
-        "Rem38": attributes.get("Rem38", "N/A"),
-        "Q39": attributes.get("Q39", "N/A"),
-        "Rem39": attributes.get("Rem39", "N/A"),
+        "comm36": attributes.get("commm36", "N/A"),
 
         "Q40": attributes.get("Q40", "N/A"),
         "Rem40": attributes.get("Rem40", "N/A"),
