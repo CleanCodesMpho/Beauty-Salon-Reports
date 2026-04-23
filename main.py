@@ -27,7 +27,7 @@ gis = GIS("https://www.arcgis.com", AGOL_USERNAME, AGOL_PASSWORD)
 # =========================
 # FEATURE LAYER
 # =========================
-SURVEY_LAYER_URL = "https://services6.arcgis.com/345WScIubRHps95b/arcgis/rest/services/service_f42b703cdb24443ca50b30f44e9868bf/FeatureServer/0"
+SURVEY_LAYER_URL = "https://services6.arcgis.com/345WScIubRHps95b/arcgis/rest/services/service_f42b703cdb24443ca50b30f44e9868bf/FeatureServer"
 layer = FeatureLayer(SURVEY_LAYER_URL, gis=gis)
 
 # =========================
