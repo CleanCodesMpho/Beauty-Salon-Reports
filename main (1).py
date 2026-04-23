@@ -334,7 +334,7 @@ def generate_report(attributes, objectid):
         "Q49": attributes.get("Q49", "N/A"),
         "comm49": attributes.get("comm49", "N/A"),
 
-       "Q50": attributes.get("Q50", "N/A"),
+        "Q50": attributes.get("Q50", "N/A"),
         "comm50": attributes.get("comm50", "N/A"),
         "Q51": attributes.get("Q51", "N/A"),
         "comm51": attributes.get("comm51", "N/A"),
