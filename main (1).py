@@ -296,7 +296,7 @@ def generate_report(attributes, objectid):
         "Q32": attributes.get("Q32", "N/A"),
         "comm32": attributes.get("commm32", "N/A"),
 
-         "Q33": attributes.get("Q33", "N/A"),
+        "Q33": attributes.get("Q33", "N/A"),
         "comm33": attributes.get("comm33", "N/A"),
         "Q34": attributes.get("Q34", "N/A"),
         "comm34": attributes.get("comm34", "N/A"),
